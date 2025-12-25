@@ -3,8 +3,6 @@ name: Docker CI/CD Pipeline
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build-and-push:
@@ -26,9 +24,5 @@ jobs:
         context: ./ElibraryParserWeb
         push: true
         tags: |
-          ${{ secrets.DOCKER_USERNAME }}/elibrary-parser-web:latest
-          ${{ secrets.DOCKER_USERNAME }}/elibrary-parser-web:${{ github.sha }}
-    
-    - name: Verify push
-      run: |
-        echo "✅ Image pushed to Docker Hub as: ${{ secrets.DOCKER_USERNAME }}/elibrary-parser-web"
+          beau13/elibrary-parser-web:latest
+          beau13/elibrary-parser-web:${{ github.sha }}
