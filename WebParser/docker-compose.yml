@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  webapp:
+    build: ./ElibraryParserWeb
+    container_name: simple_parser
+    ports:
+      - "5001:5001"
+      - "5000:5000"
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DOTNET_URLS=http://0.0.0.0:5000;https://0.0.0.0:5001

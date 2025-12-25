@@ -1,0 +1,24 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [ dz ]
+  pull_request:
+    branches: [ dz ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Build Docker image
+      run: |
+        cd ElibraryParserWeb
+        docker build -t elibrary-parser-web .
+        echo "✅ Docker image built successfully"
+    
+    - name: List Docker images
+      run: docker images
