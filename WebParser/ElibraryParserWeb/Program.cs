@@ -10,6 +10,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// commit
 //app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
